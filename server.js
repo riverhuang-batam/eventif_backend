@@ -15,7 +15,12 @@ server.use(bodyParser.urlencoded({extended: true}))
 server.use(bodyParser.json())
 server.use('/uploads', express.static('uploads'))
 server.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000", "https://eventsif.com");
+    const allowedOrigins = ["http://localhost:3000", "https://eventsif.com"]
+    const origin = req.headers.origin;
+    if(allowedOrigins.indexOf(origin) > -1){
+        res.seteader("Access-Control-Allow-Origin", origin);
+    }
+    
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-requested-With, Content-type, Authorization"
