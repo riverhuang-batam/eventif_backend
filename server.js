@@ -8,7 +8,7 @@ require('dotenv').config()
 
 mongoose.set('useCreateIndex', true);
 mongoose.connect(`${process.env.MONGODBURL}`, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => console.log('user connected'))
+.then(() => console.log('mongodb connected'))
 
 
 server.use(bodyParser.urlencoded({extended: true}))
