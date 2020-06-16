@@ -18,7 +18,7 @@ server.use((req, res, next) => {
     const allowedOrigins = ["http://localhost:3000", "https://eventsif.com"]
     const origin = req.headers.origin;
     if(allowedOrigins.indexOf(origin) > -1){
-        res.seteader("Access-Control-Allow-Origin", origin);
+        res.setHeader("Access-Control-Allow-Origin", origin);
     }
     
     res.header(
